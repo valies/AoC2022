@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: build and test
 
 on:
   push:
@@ -33,7 +33,7 @@ jobs:
       uses: mikepenz/action-junit-report@v3
       if: always() # always run even if the previous step fails
       with:
-        report_paths: '**/target/surefire-reports/TESTlala-*.xml'
+        report_paths: '**/target/surefire-reports/TEST-*.xml'
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
