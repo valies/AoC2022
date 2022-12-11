@@ -40,11 +40,9 @@ public class Day3 {
             List<Character> rugsack2 = input[i + 1].chars().mapToObj(c -> (char) c).toList();
             List<Character> rugsack3 = input[i + 2].chars().mapToObj(c -> (char) c).toList();
             List<Character> commonItemChars1And2 = rugsack1.stream()
-                    .filter(rugsack2::contains).collect(Collectors.toList());
-            System.out.println(commonItemChars1And2);
+                    .filter(rugsack2::contains).toList();
             Optional<Character> commonItemChar = commonItemChars1And2.stream()
                     .filter(rugsack3::contains).findFirst();
-            System.out.println(commonItemChar);
             if (commonItemChar.isPresent()) {
                 int thisResult = (int) commonItemChar.get() - 'a' + 1;
                 if (commonItemChar.get() >= 'A' && commonItemChar.get() <= 'Z') {
