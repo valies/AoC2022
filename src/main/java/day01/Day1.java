@@ -26,9 +26,9 @@ public class Day1 {
         return maxCalories;
     }
 
+    //Day 1: Calorie Counting
+    //Find the three elfs with the most calories
     public static int getResultOfPart2(File txtFile) {
-        //Day 1: Calorie Counting
-        //Find the three elfs with the most calories
         String[] input = FileReader.transformToStringArray(txtFile);
         int calories = 0;
         Integer[] maxCalories = {0, 0, 0};
@@ -54,7 +54,7 @@ public class Day1 {
     }
 
     public static void main(String[] args) {
-        File txtFile = new File("src/main/puzzles/day01/input.txt");
+        File txtFile = new File("./src/main/java/day01/input.txt");
         System.out.println("Part 1: " + getResultOfPart1(txtFile));
         System.out.println("Part 2: " + getResultOfPart2(txtFile));
     }
