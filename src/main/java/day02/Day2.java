@@ -5,7 +5,6 @@ import support.FileReader;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class Day2 {
     //Day 2: Rock, paper, scissors
@@ -26,7 +25,8 @@ public class Day2 {
         //Calculate
         int myPoints = 0;
         for (String game : input) {
-            Optional<String> optional = points.stream().filter(x -> x.startsWith(game)).collect(Collectors.toList()).stream().findFirst();
+            Optional<String> optional = points.stream()
+                    .filter(x -> x.startsWith(game)).findFirst();
             if(optional.isPresent()) {
                 String result = optional.get();
                 myPoints += Integer.parseInt(result.split("-")[1]) + Integer.parseInt(result.split("-")[2]);
@@ -55,21 +55,14 @@ public class Day2 {
         for (String game : input) {
             String opponentsChoice = game.split(" ")[0];
             String myChoice = game.split(" ")[1];
-            String scoreOfMyChoice;
-            switch(myChoice) {
-                case "X":
-                    scoreOfMyChoice = "0";
-                    break;
-                case "Y":
-                    scoreOfMyChoice = "3";
-                    break;
-                case "Z":
-                default:
-                    scoreOfMyChoice = "6";
-                    break;
-            }
-            String finalScoreOfMyChoice = scoreOfMyChoice;
-            Optional<String> optional = points.stream().filter(x -> x.startsWith(opponentsChoice) && x.endsWith(finalScoreOfMyChoice)).toList().stream().findFirst();
+            String scoreOfMyChoice = switch(myChoice) {
+                case "X" -> "0";
+                case "Y" -> "3";
+                case "Z" -> "6";
+            };
+            Optional<String> optional = points.stream()
+                    .filter(x -> x.startsWith(opponentsChoice) && x.endsWith(scoreOfMyChoice))
+                    .findFirst();
             if(optional.isPresent()) {
                 String result = optional.get();
                 myPoints += Integer.parseInt(result.split("-")[1]) + Integer.parseInt(result.split("-")[2]);
