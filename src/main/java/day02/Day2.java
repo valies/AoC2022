@@ -58,7 +58,7 @@ public class Day2 {
             String scoreOfMyChoice = switch(myChoice) {
                 case "X" -> "0";
                 case "Y" -> "3";
-                case "Z" -> "6";
+                default -> "6";
             };
             Optional<String> optional = points.stream()
                     .filter(x -> x.startsWith(opponentsChoice) && x.endsWith(scoreOfMyChoice))

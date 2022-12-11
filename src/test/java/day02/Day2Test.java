@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class Day2Test {
 
     @Test
-    public void day1TestPart1()
+    public void day2TestPart1()
     {
         File txtFile = new File("src/test/java/day02/input.txt");
         int expected = 15;
@@ -18,7 +18,7 @@ public class Day2Test {
     }
 
     @Test
-    public void day1TestPart2()
+    public void day2TestPart2()
     {
         File txtFile = new File("src/test/java/day02/input.txt");
         int expected = 12;
