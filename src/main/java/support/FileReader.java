@@ -16,6 +16,16 @@ public class FileReader {
         return data.toArray(new String[]{});
     }
 
+    public static ArrayList<String[]> transformToList(File txtFile, String delimiter) {
+        Scanner scan = scanFile(txtFile);
+        ArrayList<String[]> data = new ArrayList<>();
+        while(scan.hasNextLine()){
+            String line = scan.nextLine();
+            data.add(line.split(delimiter));
+        }
+        return data;
+    }
+
     public static Scanner scanFile(File txtFile) {
         Scanner scan = null;
         try {
